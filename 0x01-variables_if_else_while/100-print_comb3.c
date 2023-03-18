@@ -8,15 +8,15 @@ int main(void)
 {
 	int n, m;
 
-	for (n = 1; n <= 9; n++)
+	for (n = 48; n <= 56; n++)
 	{
-		for (m = 1; m <= 9; m++)
+		for (m = 49; m <= 57; m++)
 		{
 			if (m > n)
 			{
 				putchar(n);
 				putchar(m);
-				if (n != 9 || m != 9)
+				if (n != 56 || m != 57)
 				{
 					putchar(',');
 					putchar(' ');
