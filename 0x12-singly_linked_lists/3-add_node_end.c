@@ -11,32 +11,31 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
- list_t *new;
- list_t *temp = *head;
- unsigned int len = 0;
+list_t *new; /*decalre a new pointer for the new node*/
+list_t *temp = *head; /*declare a ptr to travers the list*/
+unsigned int len = 0;
 
- while (str[len])
- len++;
+while (str[len]) /*looping over the characters in str*/
+len++;
 
- new = malloc(sizeof(list_t));
- if (!new)
- return (NULL);
+new = malloc(sizeof(list_t)); /* Allocate memo for new node*/
+if (new == NULL)/*checking if malloc failed*/
+return (NULL);
 
- new->str = strdup(str);
- new->len = len;
- new->next = NULL;
+new->str = strdup(str); /*dupl the input str and assign it to new*/
+new->len = len; /* Assign the len of the input str to the new len field*/
+new->next = NULL;
 
- if (*head == NULL)
- {
- *head = new;
- return (new);
- }
-
- while (temp->next)
- temp = temp->next;
-
- temp->next = new;
-
- return (new);
+if (*head == NULL)
+{
+*head = new;/*If so,set the head of the list to ptr to the new node*/
+return (new);
 }
 
+while (temp->next) /* Loop over nodes in list until last one is reached*/
+temp = temp->next;
+
+temp->next = new; /* Set next field of last node in list to ptr to new node*/
+
+return (new);
+}
